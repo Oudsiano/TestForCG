@@ -1,20 +1,18 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class MoveAndRotate : MonoBehaviour
+public class SolidMoveAndRotate : MonoBehaviour
 {
     [SerializeField]
     private Transform[] pathObjects; // Объекты для движения
 
     void Start()
     {
-        // Вызываем метод для движения и вращения
         PerformMoveAndRotate();
     }
 
     void PerformMoveAndRotate()
     {
-        // Используйте ваш код для движения и вращения
         if (pathObjects == null || pathObjects.Length < 2)
         {
             Debug.LogError("Необходимо задать как минимум два объекта для движения.");
@@ -23,7 +21,6 @@ public class MoveAndRotate : MonoBehaviour
 
         Vector3[] pathPoints = new Vector3[pathObjects.Length];
 
-        // Получаем позиции из объектов
         for (int i = 0; i < pathObjects.Length; i++)
         {
             pathPoints[i] = pathObjects[i].position;
@@ -32,32 +29,24 @@ public class MoveAndRotate : MonoBehaviour
         float moveDuration = 4f;
         float rotateDuration = 2f;
 
-        // Используйте ваш код для движения и вращения
         Sequence sequence = DOTween.Sequence();
-
-        // Добавляем движение по точкам
         sequence.Append(transform.DOLocalPath(pathPoints, moveDuration, PathType.CatmullRom)
             .SetOptions(false)
             .SetEase(Ease.Linear));
 
-        // Генерируем случайные углы для вращения вокруг своей оси
         Vector3 randomRotation = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
 
-        // Добавляем вращение вокруг своей оси с использованием случайных углов
         sequence.Append(transform.DORotate(randomRotation, rotateDuration, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear));
 
-        // Вызываем метод после завершения анимации с задержкой в 3 секунды
         sequence.OnComplete(() =>
         {
-            // Вызываем метод в объекте TopSideDetector через 3 секунды
             Invoke("CallDetermineTopSide", 3f);
         });
     }
 
     void CallDetermineTopSide()
     {
-        // Вызываем метод в объекте TopSideDetector
         TopSideDetector topSideDetector = GetComponent<TopSideDetector>();
         if (topSideDetector != null)
         {
