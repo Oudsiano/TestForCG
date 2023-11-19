@@ -40,8 +40,11 @@ public class MoveAndRotate : MonoBehaviour
             .SetOptions(false)
             .SetEase(Ease.Linear));
 
-        // Добавляем вращение вокруг своей оси
-        sequence.Append(transform.DORotate(new Vector3(0f, 360f, 0f), rotateDuration, RotateMode.FastBeyond360)
+        // Генерируем случайные углы для вращения вокруг своей оси
+        Vector3 randomRotation = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+
+        // Добавляем вращение вокруг своей оси с использованием случайных углов
+        sequence.Append(transform.DORotate(randomRotation, rotateDuration, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear));
 
         // Вызываем метод после завершения анимации с задержкой в 3 секунды
