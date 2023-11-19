@@ -329,6 +329,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8501970610308046148, guid: d12fc66dc70804b9cae01532c1cea24e, type: 3}
   m_PrefabInstance: {fileID: 2185460345447077030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1425340962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 721376995980670583, guid: 8e32561605af24b0a9714857ffc14f64, type: 3}
+  m_PrefabInstance: {fileID: 6087033660390471555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425340971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425340962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d703b14d29e6d4767a2af3cfde028d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathObjects:
+  - {fileID: 1125604469}
+  - {fileID: 1347152534}
+  - {fileID: 1756020371}
+  - {fileID: 968229245}
+  - {fileID: 855630280}
 --- !u!4 &1756020371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7491048112695607837, guid: f0e6ab4612db0441f9b7620d040bd4c7, type: 3}
@@ -692,10 +715,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 855630280}
     m_RemovedComponents:
-    - {fileID: 2794023112292282126, guid: 8e32561605af24b0a9714857ffc14f64, type: 3}
+    - {fileID: 7419622490788090843, guid: 8e32561605af24b0a9714857ffc14f64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 721376995980670583, guid: 8e32561605af24b0a9714857ffc14f64, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1425340971}
   m_SourcePrefab: {fileID: 100100000, guid: 8e32561605af24b0a9714857ffc14f64, type: 3}
 --- !u!1001 &9176927429004105308
 PrefabInstance:
